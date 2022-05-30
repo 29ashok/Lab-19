@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+class vechile   //Base class
+{
+    public:
+    int vechile_no;
+    virtual void display(void)
+    {
+        cout<<" vechile no is "<<vechile_no<<endl;
+    }
+};
+class car : public vechile
+{
+    public:
+    int car_no;
+    void display(void)
+    {
+        cout<<"vechile No is "<<vechile_no<<endl;
+        cout<<"car No is "<<car_no<<endl;
+    }
+};
+class BMW: public car
+{
+    public:
+    int BMW_no;
+    void display(void)
+    {
+        cout<<"vechile no is "<<vechile_no<<endl;
+        cout<<"car no is "<<car_no<<endl;
+        cout<<"BMW no is "<<BMW_no <<endl;
+    }
+};
+
+int main()
+{
+    vechile *v_ptr;
+    car cr;
+    cr.car_no = 231;
+    v_ptr = &cr;
+    v_ptr -> vechile_no = 432;
+    v_ptr -> display();
+    
+    // runtime polymorphism
+    cout<<endl;
+    BMW bm;
+    bm.BMW_no = 456;
+    bm.car_no =675;
+    v_ptr = &bm;
+    v_ptr -> vechile_no = 78;
+    v_ptr ->display();
+    return 0;
+    }
